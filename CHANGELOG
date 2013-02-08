@@ -1,0 +1,130 @@
+PSI CMS CHANGELOG
+_________________
+
+New Features:
+- Modular content and layout structure implemented - all elements on the 
+page are now treated as modules, which can be activated, deactivated, 
+edited, deleted and so on - all via the Staff Area. The entire web page 
+is now divided in 14 zones and each module can be directed to show in a 
+particular zone. Also modules can be given a scope - to be 
+valid/displayed only on the title page, or only on inner pages, or 
+everywhere. Additionaly modules in any zone can be given a position and 
+ordered by position. The webmasters can also define as many custom HTML 
+modules as needed to display additional content features, widgets, etc 
+wherever they like on the page. This feature also makes templating very 
+easy and with little efforts PSI CMS can now be adapted for any web 
+template.
+- Global settings management implemented - a number of settings, 
+previously defined in the code as constants or variables are now stored 
+in the database and can be accessed and edited via the admin interface 
+in the Staff Area - e.g. the site name, site language, description, 
+keywords.
+- dynamic page title in browser - the title now represents the site title,
+followed by the name of the selected subject, page, subpage. It's a
+very useful feature for SEO.
+- HTML descrption and keywords can now be added and edited separately
+for each page/subpage, and they are dynamically sent to the browser
+when a page/subpage is shown. Another nice feature for SEO.
+- Image management added. Webmasters now can easily upload images via
+the admin interface, and associate them with individual pages/subpages.
+The images are stored in the database, not in the file system, and can be
+easily reviewed, uploaded and deleted - all via the interface
+- webmasters now can not only add, but also view, edit and delete
+other administrators
+- new field added for the admins - apart from their nickname they
+can now add a full name
+- last modification time/date of any page and subpage is now
+automatically stored in the database and can be shown below the content
+of a page/subpage in the public and staff area
+- new fields added to the pages/subpages database tables - now the 
+author and editor of a particular page are logged automatically and can 
+be displayed below the content of the page in the public and staff area
+- all subpages of a particular level now visible if another subpage
+on the same level is selected
+- different CSS sheets now implemented for the public site and the
+staff area
+
+Bugs Fixed:
+- utf encoding now recognized and shown properly in IE
+
+
+v. 0.3.1 (Amalthea)
+--------------------------------
+
+Bugfix Release
+
+- 8 bugs fixed. Refer to https://bugs.launchpad.net/psicms/ for
+full information
+
+v. 0.3 (Amalthea)
+-------------------------------
+New Features:
+- added subpages, thus enabling the user to effectively use 3 level 
+navigation if needed (subjects, pages, subpages). Subpages are fully 
+creatable,editable and deletable via the admin interface, as are the 
+other two layers of content hierarchy
+- introducing the concept of "torn pages". Torn pages are pieces of
+content, that are not included or dependant on the main heirarchy scheme
+(subjects, pages, subpages). They are individual separate items that can
+be optionally included on the title page (implemented) or under menu tags
+or in modules or included as a page/subpage to a particular subject
+(not yet implemented).
+- now it's possible for the webmaster to dynamicaly construct
+the contents of the title page by using torn pages.
+- added language pack support
+- added Bulgarian and English language packs
+- the default CSS template included is not anymore with fixed page 
+height
+- added dynamic prefix to DB table names to allow multiple installations 
+in 1 database. The prefix is choosed during the installation.
+- added two installer modes: first - webmasters may enter the root 
+password for MySQL, if they have access to the root MySQL account, and 
+let the installer create the database and the user for this database OR 
+second: the webmaster may provide an existing database name and MySQL 
+user credentials to make the installation in an already existing 
+database (i.e. without root access)
+- smart installer - if the installer finds an existing installation, it will
+redirect to the main site without re-running. Vice verse if the installation
+flag is set to "no", the main page will forward you to the installer. The
+installation flag is stored in your "constants.php" file.
+- GNU GPL integrated in the installer
+- the current PSI CMS version number now displays dynamically wherever 
+necessary, based on information stored atomatically during the 
+install/upgrade process
+- the current year now displays dynamically in the copyright sign in the 
+footer of the page
+- added link from the site title in the header to the main title 
+page
+- added PCI CMS link in the footer and encoded the footer
+
+
+v. 0.2 (Adrastea)
+--------------------------------------------
+New Features:
+- smart and easy installer - just point your browser to the install 
+folder and follow the instructions
+- full utf8 and cyrillic support out of the box
+- WYSIWYG editor for the page content
+- dynamic site title - set during the installation and stored in 
+"includes/constants.php"
+- dual language installer - Bulgarian and English implemented in the 
+installer
+
+Bugs fixed:
+
+- #173275 - Pages don't show up in public navigation if a page is 
+selected
+- #173756 - No cyrillic support for the DB
+
+
+v. 0.1 (Metis)
+--------------
+- ability to create, update, delete and display custom topics in the 
+menu of the site
+- ability to create, update, delete and display pages for each topic in 
+the menu of the site
+- ability to reorder both topics and pages
+- ability to add new users in the staff area for site administration
+- ability to set topics and pages visible and invisible
+- dynamic navigation
+- CSS template - manually editable

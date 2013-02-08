@@ -1,0 +1,31 @@
+<?php
+// Let's check the PSI CMS version
+// Is it in session?
+if (isset($_SESSION['psi_version'])) {
+	$psi_version = $_SESSION['psi_version'];
+} else {
+// The version is not in session, we'll get it from DB
+	$query = "SELECT * FROM ".DB_PREFIX."variables ";
+	$query .= "WHERE id=5";
+	$result = mysql_query($query, $connection);
+	$version_set = mysql_fetch_array($result);
+	$psi_version = $version_set['value1'];
+}
+// We will write the version to session to avoid
+// multiple queries
+$_SESSION['psi_version'] = $psi_version;
+
+	require_once("constants.php");
+	echo	"</div>";
+	echo	"<div id=\"footer\">Copyright ". date ('Y') .", " . $site_name ." <br />
+	<font size=\"1\">Powered by <a href=\"http://psi.tarakan.eu\"><font color=\"#EEE4B9\">PSI CMS</font></a> v. ". $psi_version ."</font>
+	</div>";
+	echo 	"</body>";
+	echo 	"</html>";
+
+	// Close connection
+	mysql_close($connection);
+
+
+
+?>
